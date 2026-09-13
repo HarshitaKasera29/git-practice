@@ -4,3 +4,6 @@ Login feature
 Profile feature
 Main change
 Production config
+Payment feature
+(Add payment feature)
+Discount feature

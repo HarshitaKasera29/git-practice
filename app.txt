@@ -7,4 +7,4 @@ Production config
 Payment feature
 (Add payment feature)
 Discount feature
-Application running on port 8080
+Application running on port 8081

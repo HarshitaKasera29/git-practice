@@ -8,3 +8,6 @@ Payment feature
 (Add payment feature)
 Discount feature
 Application running on port 8081
+Application running on port 7070
+(Update application port for feature)
+New DevOps change

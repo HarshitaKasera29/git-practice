@@ -3,9 +3,10 @@ pipeline {
 
     stages {
 
-        stage('Checkout') {
+        stage('Docker Check') {
             steps {
-                checkout scm
+                sh 'docker --version'
+                sh 'docker ps'
             }
         }
 

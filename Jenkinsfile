@@ -23,7 +23,26 @@ pipeline {
             }
         }
 
-        stage('Test') {
+	stage('Docker Push') {
+    steps {
+        withCredentials([
+            usernamePassword(
+                credentialsId: 'dockerhub-credentials',
+                usernameVariable: 'DOCKER_USER',
+                passwordVariable: 'DOCKER_TOKEN'
+            )
+        ]) {
+            sh '''
+                echo "$DOCKER_TOKEN" | docker login -u "$DOCKER_USER" --password-stdin
+                docker tag myapp:${BUILD_NUMBER} $DOCKER_USER/jenkins-demo:${BUILD_NUMBER}
+                docker push $DOCKER_USER/jenkins-demo:${BUILD_NUMBER}
+                docker logout
+            '''
+        }
+    }
+}
+       
+       stage('Test') {
             steps {
                 sh 'echo "Testing application"'
             }
